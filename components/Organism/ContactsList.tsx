@@ -2,8 +2,6 @@
 
 import { IContact } from "@/models/Contact";
 import { useState } from "react";
-import Link from "next/link";
-import Button from "@/components/Atoms/Button";
 import { updateContact } from "@/app/actions/updateContact";
 import { deleteContact } from "@/app/actions/deleteContact";
 import SearchFilterSort from "../Molecules/SearchFilterSort";
@@ -77,7 +75,7 @@ export default function ContactsList({ contacts }: ContactsListProps) {
   };
 
   return (
-    <div>
+    <>
       <SearchFilterSort
         search={searchQuery}
         setSearch={setSearchQuery}
@@ -87,26 +85,13 @@ export default function ContactsList({ contacts }: ContactsListProps) {
       />
 
       {sortedContacts.map((contact: IContact) => (
-        <div key={contact.id}>
-          <Card
-            contact={contact}
-            handleToggleFavorites={handleToggleFavorites}
-          />
-
-          <Link href={`/edit/${contact.id}`}>Edit contact</Link>
-          <Button
-            label="Delete contact"
-            onClick={() => handleDelete(contact.id)}
-          />
-          {/* <Button
-            id={contact.id}
-            label={
-              contact.favorite ? "Remove from favorites" : "Add to favorites"
-            }
-            onClick={() => handleToggleFavorites(contact.id, contact)}
-          /> */}
-        </div>
+        <Card
+          key={contact.id}
+          contact={contact}
+          handleToggleFavorites={handleToggleFavorites}
+          handleDelete={handleDelete}
+        />
       ))}
-    </div>
+    </>
   );
 }

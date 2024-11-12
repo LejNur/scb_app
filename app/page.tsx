@@ -1,4 +1,3 @@
-import SearchFilterSort from "@/components/Molecules/SearchFilterSort";
 import { getAllContacts } from "./actions/getAllContacts";
 import ContactsList from "@/components/Organism/ContactsList";
 

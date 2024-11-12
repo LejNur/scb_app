@@ -1,55 +1,78 @@
 "use client";
 import { IContact } from "@/models/Contact";
-
 import { useState } from "react";
 import Button from "../Atoms/Button";
+import Link from "next/link";
+import HeartIcon from "../icons/HeartIcon";
+import EditIcon from "../icons/EditIcon";
+import DeleteIcon from "../icons/DeleteIcon";
+import DotsIcon from "../icons/DotsIcon";
+import PhoneIcon from "../icons/PhoneIcon";
 
 interface CardProps {
+  key: string;
   contact: IContact;
   handleToggleFavorites: (id: string, contact: IContact) => void;
+  handleDelete: (id: string) => void;
 }
 
-export default function Card({ contact, handleToggleFavorites }: CardProps) {
+export default function Card({
+  contact,
+  handleToggleFavorites,
+  handleDelete,
+}: CardProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleVisibility = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-5">
+    <div className="w-full max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-5 flex-nowrap">
       <div className="p-8">
-        <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
-          {contact.firstName} {contact.lastName}
-        </div>
-        <p className="block mt-1 text-lg leading-tight font-medium text-black">
-          {contact.email}
-        </p>
-        <button onClick={toggleVisibility}>...</button>
-        {isOpen && (
-          <>
-            <p className="mt-2 text-gray-500">Event Description</p>
-            <p className="mt-2 text-gray-500">Event Details...</p>
+        <div className="flex justify-between align-baseline tracking-wide">
+          <div>
+            <p className="block mt-1 text-lg leading-tight font-medium text-black">
+              {contact.firstName} {contact.lastName}
+            </p>
+            <p className="block mt-1 text-sm leading-loose font-medium text-gray-500">
+              {contact.email}
+            </p>
+          </div>
 
+          <div className="flex gap-2 items-center justify-items-baseline">
             <Button
               id={contact.id}
               label={
-                <img
-                  src={
-                    contact.favorite
-                      ? "/icons/heartIconOutline.svg"
-                      : "/icons/heartIconSolid.svg"
-                  }
-                  alt={
-                    contact.favorite
-                      ? "Remove from favorites"
-                      : "Add to favorites"
-                  }
-                  className="h-10 w-10"
-                />
+                contact.favorite ? (
+                  <HeartIcon fill="#8B0000" />
+                ) : (
+                  <HeartIcon fill="none" stroke="#8B0000" />
+                )
               }
               onClick={() => handleToggleFavorites(contact.id, contact)}
             />
-          </>
+
+            <DotsIcon handleVisibility={toggleVisibility} />
+          </div>
+        </div>
+
+        {isOpen && (
+          <div className="flex justify-between align-baseline mt-8 mx-1">
+            <div className="flex justify-normal align-middle gap-3 mt-2">
+              <PhoneIcon />
+              <p className=" text-gray-500">{contact.phone}</p>
+            </div>
+
+            <div className="flex align-baseline gap-8">
+              <Link href={`/edit/${contact.id}`}>
+                <EditIcon />
+              </Link>
+              <Button
+                label={<DeleteIcon />}
+                onClick={() => handleDelete(contact.id)}
+              />
+            </div>
+          </div>
         )}
       </div>
     </div>
