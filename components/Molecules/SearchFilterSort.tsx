@@ -23,13 +23,13 @@ export default function SearchFilterSort({
   };
 
   return (
-    <>
+    <div>
       <Input value={search} onChange={handleSearch} />
       <Filter
         sortField={sortField}
         sortOrder={sortOrder}
         handleSort={handleSort}
       />
-    </>
+    </div>
   );
 }

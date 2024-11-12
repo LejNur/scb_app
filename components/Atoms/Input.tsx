@@ -1,10 +1,23 @@
 "use client";
 
+import SearchIcon from "../icons/SearchIcon";
+
 interface InputProps {
   type?: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 export default function Input({ type = "text", value, onChange }: InputProps) {
-  return <input type={type} value={value} onChange={onChange} />;
+  return (
+    <div className="relative">
+      <SearchIcon />
+      <input
+        type={type}
+        value={value}
+        onChange={onChange}
+        placeholder="Search"
+        className="pl-10 py-2 border rounded-md w-full focus:outline-none"
+      />
+    </div>
+  );
 }
