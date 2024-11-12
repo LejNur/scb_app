@@ -1,7 +1,18 @@
 "use client";
+
 import { useState } from "react";
 
-export default function Filter() {
+interface FilterProps {
+  sortField: "firstName" | "lastName" | "email";
+  sortOrder: "asc" | "desc";
+  handleSort: (field: "firstName" | "lastName" | "email") => void;
+}
+
+export default function Filter({
+  sortField,
+  sortOrder,
+  handleSort,
+}: FilterProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -29,15 +40,43 @@ export default function Filter() {
             isOpen ? "block" : "hidden"
           }`}
         >
-          <li className=" bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
-            First name
-          </li>
-          <li className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
-            Last name
-          </li>
-          <li className=" bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
-            Email
-          </li>
+          <button
+            name="firstName"
+            className=" bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+            onClick={() => handleSort("firstName")}
+          >
+            Sort by First Name (
+            {sortField === "firstName"
+              ? sortOrder === "asc"
+                ? "Ascending"
+                : "Descending"
+              : "None"}
+            ) First name
+          </button>
+          <button
+            className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+            onClick={() => handleSort("firstName")}
+          >
+            Sort by Last Name (
+            {sortField === "lastName"
+              ? sortOrder === "asc"
+                ? "Ascending"
+                : "Descending"
+              : "None"}
+            ) Last name
+          </button>
+          <button
+            className=" bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+            onClick={() => handleSort("firstName")}
+          >
+            Sort by email(
+            {sortField === "email"
+              ? sortOrder === "asc"
+                ? "Ascending"
+                : "Descending"
+              : "None"}
+            ) Email
+          </button>
         </ul>
       </div>
     </div>

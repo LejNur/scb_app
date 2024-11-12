@@ -1,6 +1,6 @@
-import SearchFilterSort from "@/components/Organism/SearchFilterSort";
+import SearchFilterSort from "@/components/Molecules/SearchFilterSort";
 import { getAllContacts } from "./actions/getAllContacts";
-import ContactsList from "@/components/Molecules/ContactList";
+import ContactsList from "@/components/Organism/ContactsList";
 
 async function Home() {
   const contacts = await getAllContacts();

@@ -1,31 +1,35 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import { getContact } from "@/app/actions/getContact";
 import Form from "@/components/Molecules/Form";
-import { useParams } from "next/navigation";
+import React from "react";
 
-export default function EditContact() {
-  const params = useParams<{ tag: string; id: string }>();
-  const id = params.id;
+interface ID {
+  params: { id: string };
+}
 
-  const [contact, setContact] = useState(null);
+async function EditContact({ params }: ID) {
+  const { id } = params;
+  const contact = await getContact(id);
 
-  useEffect(() => {
-    const fetchContact = async () => {
-      if (id) {
-        const contactData = await getContact(id);
+  // const params = useParams<{ tag: string; id: string }>();
+  // const id = params.id;
 
-        setContact(contactData);
-      }
-    };
+  // const [contact, setContact] = useState(null);
 
-    fetchContact();
-  }, [id]);
+  // useEffect(() => {
+  //   const fetchContact = async () => {
+  //     if (params.id) {
+  //       const contactData = await getContact(params.id);
 
-  if (!contact) {
-    return <div>Loading...</div>;
-  }
+  //       setContact(contactData);
+  //     }
+  //   };
+
+  //   fetchContact();
+  // }, [params.id]);
+
+  // if (!contact) {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <div>
@@ -34,3 +38,4 @@ export default function EditContact() {
     </div>
   );
 }
+export default EditContact;

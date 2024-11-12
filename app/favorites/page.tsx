@@ -1,4 +1,4 @@
-import ContactsList from "@/components/Molecules/ContactList";
+import ContactsList from "@/components/Organism/ContactsList";
 import { getFavorites } from "../actions/getFavorites";
 
 async function Favorites() {
@@ -8,7 +8,7 @@ async function Favorites() {
     <>
       <h1>Contact List</h1>
 
-      <ContactsList contacts={favorites}></ContactsList>
+      <ContactsList contacts={favorites} />
     </>
   );
 }
