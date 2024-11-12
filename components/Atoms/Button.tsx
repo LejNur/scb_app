@@ -2,7 +2,7 @@
 
 interface ButtonProps {
   id?: string;
-  label: string;
+  label: React.ReactNode;
   onClick?: () => void;
   className?: string;
   type?: "button" | "submit";

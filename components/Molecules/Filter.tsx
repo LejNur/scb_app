@@ -54,8 +54,9 @@ export default function Filter({
             ) First name
           </button>
           <button
+            name="lastName"
             className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-            onClick={() => handleSort("firstName")}
+            onClick={() => handleSort("lastName")}
           >
             Sort by Last Name (
             {sortField === "lastName"
@@ -66,8 +67,9 @@ export default function Filter({
             ) Last name
           </button>
           <button
+            name="email"
             className=" bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-            onClick={() => handleSort("firstName")}
+            onClick={() => handleSort("email")}
           >
             Sort by email(
             {sortField === "email"
