@@ -4,17 +4,17 @@ import { useEffect, useState } from "react";
 import { getContact } from "@/app/actions/getContact";
 import Form from "@/components/Molecules/Form";
 import { useParams } from "next/navigation";
-import Button from "@/components/Atoms/Button";
 
 export default function EditContact() {
-  const { id } = useParams();
+  const params = useParams<{ tag: string; id: string }>();
+  const id = params.id;
 
   const [contact, setContact] = useState(null);
 
   useEffect(() => {
     const fetchContact = async () => {
       if (id) {
-        const contactData = await getContact(id as string);
+        const contactData = await getContact(id);
 
         setContact(contactData);
       }
