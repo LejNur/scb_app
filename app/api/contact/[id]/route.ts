@@ -29,7 +29,6 @@ export async function PUT(
       new: true,
       runValidators: true,
     });
-
     return NextResponse.json(updateContact);
   } catch (error: any) {
     console.error("Error", error);

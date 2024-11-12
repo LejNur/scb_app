@@ -7,7 +7,8 @@ export const updateContact = async (id: string, form: FormData) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
     });
-    return res;
+
+    return res.json();
   } catch (error: any) {
     throw new Error(error.message);
   }

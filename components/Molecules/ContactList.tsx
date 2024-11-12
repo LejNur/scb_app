@@ -23,7 +23,12 @@ export default function ContactsList({ contacts }: ContactsListProps) {
 
   const handleToggleFavorites = async (id: string, contact: IContact) => {
     const updatedContact = { ...contact, favorite: !contact.favorite };
-    await updateContact(id, updatedContact);
+    const res = await updateContact(id, updatedContact);
+
+    const updatedContactList = contactList.map((contact) =>
+      contact.id === id ? res : contact
+    );
+    setContactList(updatedContactList);
   };
 
   return (
@@ -38,6 +43,7 @@ export default function ContactsList({ contacts }: ContactsListProps) {
             onClick={() => handleDelete(contact.id)}
           />
           <Button
+            id={contact.id}
             label={
               contact.favorite ? "Remove from favorites" : "Add to favorites"
             }
