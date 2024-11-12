@@ -6,6 +6,7 @@ import Link from "next/link";
 import Button from "@/components/Atoms/Button";
 import { updateContact } from "@/app/actions/updateContact";
 import { deleteContact } from "@/app/actions/deleteContact";
+import SearchFilterSort from "../Organism/SearchFilterSort";
 
 interface ContactsListProps {
   contacts: IContact[];
@@ -13,6 +14,13 @@ interface ContactsListProps {
 
 export default function ContactsList({ contacts }: ContactsListProps) {
   const [contactList, setContactList] = useState<IContact[]>(contacts);
+  const [searchQuery, setSearchQuery] = useState<string>("");
+
+  const filteredContacts = contactList.filter(
+    (contact) =>
+      contact.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      contact.email.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   const handleDelete = async (id: string) => {
     await deleteContact(id);
@@ -33,7 +41,8 @@ export default function ContactsList({ contacts }: ContactsListProps) {
 
   return (
     <div>
-      {contactList.map((contact: IContact) => (
+      <SearchFilterSort search={searchQuery} setSearch={setSearchQuery} />
+      {filteredContacts.map((contact: IContact) => (
         <div key={contact.id}>
           <h2>{contact.firstName}</h2>
           <p>{contact.email}</p>
