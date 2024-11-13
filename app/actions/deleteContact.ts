@@ -4,6 +4,10 @@ export const deleteContact = async (id: string) => {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     });
+    if (!res.ok) {
+      const errorData = await res.json();
+      throw new Error(errorData.error || "Something went wrong");
+    }
   } catch (error: any) {
     throw new Error(error.message);
   }

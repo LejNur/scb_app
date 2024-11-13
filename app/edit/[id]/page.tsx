@@ -2,7 +2,11 @@ import { getContact } from "@/app/actions/getContact";
 import Form from "@/components/Molecules/Form";
 import React from "react";
 
-async function EditContact({ params }: { params: Promise<{ id: string }> }) {
+interface Props {
+  params: { id: string };
+}
+
+async function EditContact({ params }: Props) {
   const { id } = await params;
   const contact = await getContact(id);
 

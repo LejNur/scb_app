@@ -12,7 +12,6 @@ export async function GET(
 
     return NextResponse.json(contact);
   } catch (error: any) {
-    console.error("Error", error);
     return NextResponse.json({ message: error }, { status: 500 });
   }
 }
@@ -22,7 +21,6 @@ export async function PUT(
   { params }: { params: { id: string } }
 ) {
   const data = await req.json();
-
   await connectToDatabase();
   try {
     const updateContact = await Contact.findByIdAndUpdate(params.id, data, {
@@ -31,8 +29,10 @@ export async function PUT(
     });
     return NextResponse.json(updateContact);
   } catch (error: any) {
-    console.error("Error", error);
-    return NextResponse.json({ message: error }, { status: 500 });
+    if (error.name === "ValidationError") {
+      return NextResponse.json({ error: error.message }, { status: 400 });
+    }
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
 
@@ -46,7 +46,6 @@ export async function DELETE(
 
     return NextResponse.json(deleteContact, { status: 201 });
   } catch (error: any) {
-    console.error("Error", error);
-    return NextResponse.json({ message: error }, { status: 500 });
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

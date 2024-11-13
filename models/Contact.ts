@@ -34,6 +34,7 @@ const contactSchema = new Schema<IContact>({
   phone: {
     type: String,
     minLength: 8,
+    maxlength: 12,
     validate: {
       validator: function (v) {
         return /^\d{2,3}-\d+$/.test(v);

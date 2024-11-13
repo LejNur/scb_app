@@ -12,7 +12,13 @@ export const addNewContact = async (form: NewContact) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
     });
-    return res;
+
+    if (!res.ok) {
+      const errorData = await res.json();
+      throw new Error(errorData.error || "Something went wrong");
+    }
+
+    return res.json();
   } catch (error: any) {
     throw new Error(error.message);
   }

@@ -8,6 +8,11 @@ export const updateContact = async (id: string, form: FormData) => {
       body: JSON.stringify(form),
     });
 
+    if (!res.ok) {
+      const errorData = await res.json();
+      throw new Error(errorData.error || "Something went wrong");
+    }
+
     return res.json();
   } catch (error: any) {
     throw new Error(error.message);
