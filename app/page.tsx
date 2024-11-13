@@ -1,3 +1,4 @@
+import Modal from "@/components/Molecules/Modal";
 import { getAllContacts } from "./actions/getAllContacts";
 import ContactsList from "@/components/Organism/ContactsList";
 
@@ -7,6 +8,7 @@ async function Home() {
   return (
     <>
       <h1>Contact List</h1>
+
       <ContactsList contacts={contacts} />
     </>
   );

@@ -8,6 +8,7 @@ import EditIcon from "../icons/EditIcon";
 import DeleteIcon from "../icons/DeleteIcon";
 import DotsIcon from "../icons/DotsIcon";
 import PhoneIcon from "../icons/PhoneIcon";
+import Modal from "./Modal";
 
 interface CardProps {
   key: string;
@@ -22,10 +23,17 @@ export default function Card({
   handleDelete,
 }: CardProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
 
   const toggleVisibility = () => {
     setIsOpen(!isOpen);
   };
+
+  const confirmDelete = () => {
+    handleDelete(contact.id);
+    setModalVisible(!modalVisible);
+  };
+
   return (
     <div className="w-full max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-5 flex-nowrap">
       <div className="p-8">
@@ -69,12 +77,19 @@ export default function Card({
               </Link>
               <Button
                 label={<DeleteIcon />}
-                onClick={() => handleDelete(contact.id)}
+                onClick={() => setModalVisible(true)}
               />
             </div>
           </div>
         )}
       </div>
+      {modalVisible && (
+        <Modal
+          message="Are you sure you want to delete this contact?"
+          onConfirm={confirmDelete}
+          onCancel={() => setModalVisible(false)}
+        />
+      )}
     </div>
   );
 }
