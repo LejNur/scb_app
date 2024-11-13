@@ -6,6 +6,8 @@ import { updateContact } from "@/app/actions/updateContact";
 import { deleteContact } from "@/app/actions/deleteContact";
 import SearchFilterSort from "../Molecules/SearchFilterSort";
 import Card from "../Molecules/Card";
+import { usePathname, useRouter } from "next/navigation";
+import { getFavorites } from "@/app/actions/getFavorites";
 
 interface ContactsListProps {
   contacts: IContact[];
@@ -18,6 +20,9 @@ export default function ContactsList({ contacts }: ContactsListProps) {
   const [sortField, setSortField] = useState<
     "firstName" | "lastName" | "email"
   >("firstName");
+
+  const pathName = usePathname();
+  const router = useRouter();
 
   const sortContacts = (
     contacts: IContact[],
@@ -66,12 +71,18 @@ export default function ContactsList({ contacts }: ContactsListProps) {
 
   const handleToggleFavorites = async (id: string, contact: IContact) => {
     const updatedContact = { ...contact, favorite: !contact.favorite };
-    const res = await updateContact(id, updatedContact);
 
+    const res = await updateContact(id, updatedContact);
     const updatedContactList = contactList.map((contact) =>
       contact.id === id ? res : contact
     );
     setContactList(updatedContactList);
+
+    if (pathName === "/favorites") {
+      router.push("/");
+      // const res = await getFavorites();
+      // setContactList(res);
+    }
   };
 
   return (

@@ -23,8 +23,9 @@ export default function SearchFilterSort({
   };
 
   return (
-    <div>
+    <div className="flex align-middle justify-center gap-2 mx-2 lg:mx-8">
       <Input value={search} onChange={handleSearch} />
+
       <Filter
         sortField={sortField}
         sortOrder={sortOrder}
