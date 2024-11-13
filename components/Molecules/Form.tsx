@@ -4,6 +4,7 @@ import { updateContact } from "@/app/actions/updateContact";
 import { useEffect, useState } from "react";
 import Button from "../Atoms/Button";
 import { useParams, useRouter } from "next/navigation";
+import Toast from "../Atoms/Toast";
 
 export interface FormData {
   firstName: string;
@@ -33,6 +34,8 @@ export default function Form({ formData: initialData }: Props) {
     }
   );
   const [errors, setErrors] = useState("");
+  const [toastVisible, setToastVisible] = useState(false);
+  const [message, setMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -40,12 +43,25 @@ export default function Form({ formData: initialData }: Props) {
     if (id) {
       try {
         await updateContact(id as string, formData);
+        setToastVisible(true);
+        setMessage(`${formData.firstName} successfully updated!`);
+        setTimeout(() => {
+          router.push("/");
+        }, 2000);
       } catch (error) {
         if (error instanceof Error) setErrors(error.message);
       }
     } else {
       try {
         await addNewContact(formData);
+        setToastVisible(true);
+        setMessage(
+          `${formData.firstName} ${formData.lastName}
+           successfully added to your contacts list!`
+        );
+        setTimeout(() => {
+          router.push("/");
+        }, 2000);
       } catch (error) {
         if (error instanceof Error) setErrors(error.message);
       }
@@ -69,6 +85,8 @@ export default function Form({ formData: initialData }: Props) {
 
   return (
     <>
+      <Toast message="TESTIN STYLING" />
+      {/* {toastVisible && <Toast message={message} />} */}
       <form onSubmit={handleSubmit} className="max-w-md mx-auto px-4">
         <div className="relative z-0 w-full mb-5 group">
           <input

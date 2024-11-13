@@ -17,6 +17,7 @@ export default function DotsIcon({ handleVisibility }: IconProps) {
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={4}
+        className="cursor-pointer"
         d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 1 1 0-2a1 1 0 0 1 0 2m0 7a1 1 0 1 1 0-2a1 1 0 0 1 0 2m0 7a1 1 0 1 1 0-2a1 1 0 0 1 0 2"
       ></path>
     </svg>
