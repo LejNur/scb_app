@@ -85,8 +85,20 @@ export default function Form({ formData: initialData }: Props) {
 
   return (
     <>
-      <Toast message="TESTIN STYLING" />
-      {/* {toastVisible && <Toast message={message} />} */}
+      {toastVisible && (
+        <Toast
+          message={message}
+          className=" text-green-500 bg-green-100 rounded-lg dark:bg-green-800
+          dark:text-green-200"
+        />
+      )}
+      {errors && (
+        <Toast
+          message={errors}
+          className=" text-red-500 bg-red-300 rounded-lg dark:bg-red-800
+          dark:text-red-200"
+        />
+      )}
       <form onSubmit={handleSubmit} className="max-w-md mx-auto px-4">
         <div className="relative z-0 w-full mb-5 group">
           <input
@@ -157,7 +169,6 @@ export default function Form({ formData: initialData }: Props) {
             >
               Phone number (123-456789)
             </label>
-            {errors && <p>{errors}</p>}
           </div>
         </div>
 

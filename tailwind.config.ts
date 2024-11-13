@@ -9,10 +9,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        smokyBlack: "#100C0B",
+        chartreuse: "#E0FC58",
+        successGreen: "#28A745",
+        errorRed: "#DC3545",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animated")],
 } satisfies Config;

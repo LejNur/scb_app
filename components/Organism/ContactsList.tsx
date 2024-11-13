@@ -7,7 +7,6 @@ import { deleteContact } from "@/app/actions/deleteContact";
 import SearchFilterSort from "../Molecules/SearchFilterSort";
 import Card from "../Molecules/Card";
 import { usePathname, useRouter } from "next/navigation";
-import { getFavorites } from "@/app/actions/getFavorites";
 
 interface ContactsListProps {
   contacts: IContact[];
@@ -59,7 +58,6 @@ export default function ContactsList({ contacts }: ContactsListProps) {
     }
   };
 
-  // Apply sorting to filtered contacts
   const sortedContacts = sortContacts(filteredContacts, sortField, sortOrder);
 
   const handleDelete = async (id: string) => {

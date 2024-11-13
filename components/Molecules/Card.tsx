@@ -49,15 +49,18 @@ export default function Card({
 
           <div className="flex gap-2 items-center justify-items-baseline">
             <Button
+              onClick={() => handleToggleFavorites(contact.id, contact)}
               id={contact.id}
               label={
                 contact.favorite ? (
-                  <HeartIcon fill="#8B0000" />
+                  <HeartIcon
+                    fill="#8B0000"
+                    // className="w-10 animate-ping animate-once animate-ease-linear animate-normal"
+                  />
                 ) : (
                   <HeartIcon fill="none" stroke="#8B0000" />
                 )
               }
-              onClick={() => handleToggleFavorites(contact.id, contact)}
             />
 
             <DotsIcon handleVisibility={toggleVisibility} />
@@ -65,7 +68,7 @@ export default function Card({
         </div>
 
         {isOpen && (
-          <div className="flex justify-between align-baseline mt-8 mx-1">
+          <div className="flex justify-between align-baseline mt-8 mx-1 ">
             <div className="flex justify-normal align-middle gap-3 mt-2">
               <PhoneIcon />
               <p className=" text-gray-500">{contact.phone}</p>
