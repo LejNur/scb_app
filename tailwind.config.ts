@@ -10,6 +10,7 @@ export default {
     extend: {
       colors: {
         smokyBlack: "#100C0B",
+        chartreuseLight: "#F0FFAA",
         chartreuse: "#E4FF59",
         chartreuseDarker: "#C3D94C",
         successGreen: "#70CD70",

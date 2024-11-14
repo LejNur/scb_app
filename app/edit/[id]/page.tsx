@@ -33,7 +33,9 @@ async function EditContact({ params }: Props) {
 
   return (
     <div>
-      <h1>Edit Contact</h1>
+      <h1 className="text-softWhite font-Lato tracking-wide text-2xl mx-auto text-center">
+        Edit contact
+      </h1>
       <Form formData={contact} />
     </div>
   );

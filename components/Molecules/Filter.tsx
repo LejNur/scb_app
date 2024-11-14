@@ -25,12 +25,12 @@ export default function Filter({
     <div className="w-2/6 md:w-1/5 ">
       <div className="dropdown block relative">
         <button
-          className=" bg-chartreuse text-smokyBlack font-semibold py-2 px-4 inline-flex items-center justify-center w-full"
+          className=" bg-softSage text-chartreuse font-semibold py-2 px-4 inline-flex items-center justify-center w-full"
           onClick={toggleDropdown}
         >
           <span className="mr-1">Sort</span>
           <svg
-            className="fill-current h-7 w-6"
+            className="fill-current h-4 w-4"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
           >
@@ -45,7 +45,7 @@ export default function Filter({
           <li>
             <button
               name="firstName"
-              className=" bg-chartreuse hover:bg-chartreuseDarker active:bg-chartreuseDarker transition-all duration-800 ease-in-out  py-4 px-2 justify-center items-center gap-2 whitespace-nowrap text-base w-full flex"
+              className=" bg-softSage hover:bg-chartreuse active:bg-chartreuse transition-all duration-800 ease-in-out py-4 px-2  justify-center items-center gap-1 whitespace-nowrap text-sm w-full flex"
               onClick={() => handleSort("firstName")}
             >
               <span>First Name</span>
@@ -57,7 +57,7 @@ export default function Filter({
           <li>
             <button
               name="lastName"
-              className=" bg-chartreuse hover:bg-chartreuseDarker transition-all duration-800 ease-in-out px-2  py-4 justify-center items-center gap-4 whitespace-nowrap text-base w-full flex active:bg-chartreuseDarker"
+              className=" bg-softSage hover:bg-chartreuse active:bg-chartreuse transition-all duration-800 ease-in-out py-4 px-2  justify-center items-center gap-1 whitespace-nowrap text-sm w-full flex"
               onClick={() => handleSort("lastName")}
             >
               <span>Last name</span>
@@ -69,7 +69,7 @@ export default function Filter({
           <li className="w-full">
             <button
               name="email"
-              className=" bg-chartreuse hover:bg-chartreuseDarker transition-all duration-800 ease-in-out px-2  py-4 justify-center items-center gap-4 whitespace-nowrap text-base w-full flex active:bg-chartreuseDarker"
+              className=" bg-softSage hover:bg-chartreuse active:bg-chartreuse transition-all duration-800 ease-in-out py-4 px-2  justify-center items-center gap-1 whitespace-nowrap text-sm w-full flex"
               onClick={() => handleSort("email")}
             >
               <span>Email</span>

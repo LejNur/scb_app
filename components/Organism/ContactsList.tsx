@@ -7,6 +7,7 @@ import { deleteContact } from "@/app/actions/deleteContact";
 import SearchFilterSort from "../Molecules/SearchFilterSort";
 import Card from "../Molecules/Card";
 import { usePathname, useRouter } from "next/navigation";
+import Toast from "../Atoms/Toast";
 
 interface ContactsListProps {
   contacts: IContact[];
@@ -19,6 +20,7 @@ export default function ContactsList({ contacts }: ContactsListProps) {
   const [sortField, setSortField] = useState<
     "firstName" | "lastName" | "email"
   >("firstName");
+  const [toast, setToast] = useState(false);
 
   const pathName = usePathname();
   const router = useRouter();
@@ -42,7 +44,6 @@ export default function ContactsList({ contacts }: ContactsListProps) {
     });
   };
 
-  //ova je radila prije nego sto sam odlucila da smontiram sve
   const filteredContacts = contactList.filter(
     (contact) =>
       contact.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -63,6 +64,7 @@ export default function ContactsList({ contacts }: ContactsListProps) {
 
   const handleDelete = async (id: string) => {
     await deleteContact(id);
+    setToast(true);
     setContactList((prevContacts) =>
       prevContacts.filter((contact) => contact.id !== id)
     );
@@ -78,14 +80,21 @@ export default function ContactsList({ contacts }: ContactsListProps) {
     setContactList(updatedContactList);
 
     if (pathName === "/favorites") {
-      router.push("/");
-      // const res = await getFavorites();
-      // setContactList(res);
+      setToast(true);
+      setTimeout(() => {
+        router.push("/");
+      }, 2000);
     }
   };
 
   return (
     <>
+      {toast && (
+        <Toast
+          message="Contact removed from favorites"
+          className="bg-successGreen text-forestGreen"
+        />
+      )}
       <SearchFilterSort
         search={searchQuery}
         setSearch={setSearchQuery}
@@ -93,7 +102,6 @@ export default function ContactsList({ contacts }: ContactsListProps) {
         sortField={sortField}
         handleSort={handleSort}
       />
-
       {sortedContacts.map((contact: IContact) => (
         <Card
           key={contact.id}

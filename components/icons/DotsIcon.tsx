@@ -12,8 +12,8 @@ export default function DotsIcon({ handleVisibility }: IconProps) {
       onClick={handleVisibility}
     >
       <path
-        fill="#F5F5F5"
-        stroke="#F5F5F5"
+        fill="#CBD2B9"
+        stroke="#CBD2B9"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={2}
