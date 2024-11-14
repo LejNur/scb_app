@@ -1,4 +1,3 @@
-import Modal from "@/components/Molecules/Modal";
 import { getAllContacts } from "./actions/getAllContacts";
 import ContactsList from "@/components/Organism/ContactsList";
 

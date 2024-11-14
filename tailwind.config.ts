@@ -11,8 +11,13 @@ export default {
       colors: {
         smokyBlack: "#100C0B",
         chartreuse: "#E0FC58",
+        chartreuseDarker: "#C3D94C",
         successGreen: "#28A745",
         errorRed: "#DC3545",
+        softWhite: "#F5F5F5",
+      },
+      fontFamily: {
+        Lato: ["Lato", "sans-serif"],
       },
     },
   },

@@ -1,6 +1,6 @@
 export default function HeartIcon({
   fill = "",
-  stroke = "#8B0000",
+  stroke = "",
   className = "size-12",
 }) {
   return (

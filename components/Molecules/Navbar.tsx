@@ -2,27 +2,45 @@
 import Link from "next/link";
 import PlusIcon from "../icons/PlusIcon";
 import HeartIcon from "../icons/HeartIcon";
+import { usePathname } from "next/navigation";
 
 function Navbar() {
+  const pathname = usePathname();
   return (
-    <nav className="bg-slate-700 w-full py-6">
-      <div className="text-white flex justify-between align-baseline items-center mx-4 md:mx-8 lg:mx-10">
-        <h1 className="text-3xl">ContactsBook</h1>
+    <nav className="bg-smokyBlack w-full py-6 font-Lato ">
+      <div className=" flex justify-between align-baseline items-center mx-4 md:mx-8 lg:mx-10">
+        <h1 className="text-3xl text-chartreuseDarker font-thin tracking-wider">
+          ContactsBook
+        </h1>
         <Link
-          className="text-blue-500 bg-slate-200 rounded-md px-2 flex gap-1 justify-center align-middle items-center"
+          className="text-smokyBlack font-Lato font-semibold bg-chartreuse px-4 py-1 flex gap-1 justify-baseline align-baseline"
           href={"/addContact"}
         >
           <PlusIcon />
-          ADD
+          <span>ADD</span>
         </Link>
       </div>
-      <div className="flex justify-center mt-8 mb-2 justify-items-center align-baseline gap-6">
-        <Link className="text-white pr-3" href={"/"}>
+      <div className="text-softWhite text-lg md:text-xl font-thin tracking-widest flex justify-center mt-16 mb-2 justify-items-center align-baseline gap-8">
+        <Link
+          className={`font-extralight active:scale-95 transition transform ${
+            pathname === "/" ? "font-medium text-chartreuse" : ""
+          }`}
+          href={"/"}
+        >
           All Contacts
         </Link>
-        <Link className="text-white pr-3 flex gap-1" href={"/favorites"}>
+        <Link
+          className={` flex gap-1 active:scale-95 transition transform ${
+            pathname === "/favorites" ? " font-medium text-chartreuse" : ""
+          }`}
+          href={"/favorites"}
+        >
           Favorites
-          <HeartIcon className="size-6" fill="none" />
+          <HeartIcon
+            className="size-6"
+            fill={` ${pathname === "/favorites" ? "chartreuse" : "none"}`}
+            stroke="chartreuse"
+          />
         </Link>
       </div>
     </nav>
