@@ -40,11 +40,12 @@ export async function PUT(
 
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const id = (await params).id;
   await connectToDatabase();
   try {
-    const deleteContact = await Contact.findByIdAndDelete(params.id);
+    const deleteContact = await Contact.findByIdAndDelete(id);
 
     return NextResponse.json(deleteContact, { status: 201 });
   } catch (error: any) {
