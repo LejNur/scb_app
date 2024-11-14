@@ -96,7 +96,9 @@ export default function Form({ formData: initialData }: Props) {
         <Toast
           message={errors}
           className=" text-dangerRed bg-dangerRedDark bg-opacity-70"
-          onClose={() => setToastVisible(false)}
+          onClose={() => {
+            setToastVisible(false), setErrors("");
+          }}
         />
       )}
       <form onSubmit={handleSubmit} className="max-w-md mx-auto px-4">
