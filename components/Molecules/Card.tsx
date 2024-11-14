@@ -35,11 +35,11 @@ export default function Card({
   };
 
   return (
-    <div className="w-full max-w-md mx-auto bg-smokyBlack shadow-lg shadow-neutral-900 text-softWhite   overflow-hidden md:max-w-2xl m-5 flex-nowrap ">
+    <div className="w-full max-w-md mx-auto bg-smokyBlack shadow-lg shadow-neutral-900 text-softWhite overflow-hidden md:max-w-2xl m-5 flex-nowrap ">
       <div className="p-8">
         <div className="flex justify-between align-baseline tracking-wide">
           <div>
-            <p className="block mt-1 text-2xl font-Lato tracking-widest font-thin">
+            <p className="block mt-1 text-2xl font-Lato tracking-widest font-light">
               {contact.firstName} {contact.lastName}
             </p>
             <p className="block mt-1 text-sm font-Lato tracking-wider font-think opacity-60">

@@ -9,7 +9,7 @@ function Navbar() {
   return (
     <nav className="bg-smokyBlack w-full py-6 font-Lato ">
       <div className=" flex justify-between align-baseline items-center mx-4 md:w-3/5 md:mx-auto lg:mx-auto">
-        <h1 className="text-2xl md:text-3xl lg:text-3xl text-chartreuseDarker font-thin tracking-wider">
+        <h1 className="text-2xl md:text-3xl lg:text-3xl text-chartreuseDarker font-light tracking-wider">
           ContactsBook
         </h1>
         <Link
@@ -20,7 +20,7 @@ function Navbar() {
           <span>ADD</span>
         </Link>
       </div>
-      <div className="text-softSage text-lg md:text-xl font-thin tracking-widest flex justify-center mt-16 mb-2 justify-items-center align-baseline gap-8">
+      <div className="text-softSage text-lg md:text-xl font-light tracking-widest flex justify-center mt-16 mb-2 justify-items-center align-baseline gap-8">
         <Link
           className={`font-extralight active:scale-95 transition transform ${
             pathname === "/" ? "font-medium text-chartreuse" : ""

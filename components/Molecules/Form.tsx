@@ -105,6 +105,7 @@ export default function Form({ formData: initialData }: Props) {
           <input
             type="text"
             name="firstName"
+            id="firstName"
             className="block py-2.5 px-0 w-full text-sm text-softWhite bg-transparent border-0 border-b-2  appearance-none dark:text-softWhite focus:outline-none focus:ring-0 focus:border-chartreuse peer"
             placeholder=""
             required
@@ -122,6 +123,7 @@ export default function Form({ formData: initialData }: Props) {
           <input
             type="text"
             name="lastName"
+            id="lastName"
             className="block py-2.5 px-0 w-full text-sm text-softWhite bg-transparent border-0 border-b-2  appearance-none dark:text-softWhite focus:outline-none focus:ring-0 focus:border-chartreuse peer"
             placeholder=" "
             required
@@ -140,6 +142,7 @@ export default function Form({ formData: initialData }: Props) {
             <input
               type="text"
               name="email"
+              id="email"
               className="block py-2.5 px-0 w-full text-sm text-softWhite bg-transparent border-0 border-b-2  appearance-none dark:text-softWhite focus:outline-none focus:ring-0 focus:border-chartreuse peer"
               placeholder=" "
               required
@@ -157,6 +160,7 @@ export default function Form({ formData: initialData }: Props) {
             <input
               type="text"
               name="phone"
+              id="phone"
               pattern="\d{2,3}-\d+"
               className="block py-2.5 px-0 w-full text-sm text-softWhite bg-transparent border-0 border-b-2  appearance-none dark:text-softWhite focus:outline-none focus:ring-0 focus:border-chartreuse peer"
               placeholder=" "
