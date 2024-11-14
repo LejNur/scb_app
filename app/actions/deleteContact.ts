@@ -8,7 +8,7 @@ export const deleteContact = async (id: string) => {
       const errorData = await res.json();
       throw new Error(errorData.error || "Something went wrong");
     }
-  } catch (error: any) {
-    throw new Error(error.message);
+  } catch (error) {
+    if (error instanceof Error) throw new Error(error.message);
   }
 };

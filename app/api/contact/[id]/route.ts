@@ -12,8 +12,15 @@ export async function GET(
     const contact = await Contact.findById(id);
 
     return NextResponse.json(contact);
-  } catch (error: any) {
-    return NextResponse.json({ message: error }, { status: 500 });
+  } catch (error) {
+    if (error instanceof Error) {
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    } else {
+      return NextResponse.json(
+        { error: "An unknown error occured" },
+        { status: 500 }
+      );
+    }
   }
 }
 
@@ -30,11 +37,20 @@ export async function PUT(
       runValidators: true,
     });
     return NextResponse.json(updateContact);
-  } catch (error: any) {
-    if (error.name === "ValidationError") {
-      return NextResponse.json({ error: error.message }, { status: 400 });
+  } catch (error) {
+    if (error instanceof Error) {
+      if (error.name === "ValidationError") {
+        return NextResponse.json({ error: error.message }, { status: 400 });
+      }
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    } else {
+      return NextResponse.json(
+        { error: "An unknown error occured" },
+        { status: 500 }
+      );
     }
-    return NextResponse.json({ error: error.message }, { status: 500 });
+
+    //
   }
 }
 
@@ -48,7 +64,14 @@ export async function DELETE(
     const deleteContact = await Contact.findByIdAndDelete(id);
 
     return NextResponse.json(deleteContact, { status: 201 });
-  } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  } catch (error) {
+    if (error instanceof Error) {
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    } else {
+      return NextResponse.json(
+        { error: "An unknown error occured" },
+        { status: 500 }
+      );
+    }
   }
 }

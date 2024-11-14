@@ -14,7 +14,7 @@ export const updateContact = async (id: string, form: FormData) => {
     }
 
     return res.json();
-  } catch (error: any) {
-    throw new Error(error.message);
+  } catch (error) {
+    if (error instanceof Error) throw new Error(error.message);
   }
 };

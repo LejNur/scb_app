@@ -19,7 +19,9 @@ export const addNewContact = async (form: NewContact) => {
     }
 
     return res.json();
-  } catch (error: any) {
-    throw new Error(error.message);
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error(error.message);
+    }
   }
 };

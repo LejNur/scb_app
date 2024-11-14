@@ -31,8 +31,8 @@ export default function ContactsList({ contacts }: ContactsListProps) {
     order: "asc" | "desc"
   ) => {
     return [...contacts].sort((a, b) => {
-      let aValue = a[field].toLowerCase();
-      let bValue = b[field].toLowerCase();
+      const aValue = a[field].toLowerCase();
+      const bValue = b[field].toLowerCase();
 
       if (aValue < bValue) {
         return order === "asc" ? -1 : 1;
