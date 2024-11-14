@@ -4,11 +4,12 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const id = (await params).id;
   await connectToDatabase();
   try {
-    const contact = await Contact.findById(params.id);
+    const contact = await Contact.findById(id);
 
     return NextResponse.json(contact);
   } catch (error: any) {
@@ -18,12 +19,13 @@ export async function GET(
 
 export async function PUT(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const id = (await params).id;
   const data = await req.json();
   await connectToDatabase();
   try {
-    const updateContact = await Contact.findByIdAndUpdate(params.id, data, {
+    const updateContact = await Contact.findByIdAndUpdate(id, data, {
       new: true,
       runValidators: true,
     });

@@ -23,7 +23,7 @@ export default function SearchFilterSort({
   };
 
   return (
-    <div className="flex items-center justify-center gap-2 mx-2 md:mx-8 lg:w-1/2 lg:mx-auto">
+    <div className="flex items-center justify-center gap-2 mx-2 md:mx-8 lg:w-2/5 lg:mx-auto">
       <Input value={search} onChange={handleSearch} />
 
       <Filter

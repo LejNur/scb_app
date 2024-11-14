@@ -7,8 +7,8 @@ import { usePathname } from "next/navigation";
 function Navbar() {
   const pathname = usePathname();
   return (
-    <nav className="bg-smokyBlack w-full py-6 font-Lato">
-      <div className=" flex justify-between align-baseline items-center mx-4 md:mx-8 lg:mx-10">
+    <nav className="bg-smokyBlack w-full py-6 font-Lato ">
+      <div className=" flex justify-between align-baseline items-center mx-4 md:w-3/5 md:mx-auto lg:mx-auto">
         <h1 className="text-2xl md:text-3xl lg:text-3xl text-chartreuseDarker font-thin tracking-wider">
           ContactsBook
         </h1>

@@ -83,6 +83,7 @@ export default function ContactsList({ contacts }: ContactsListProps) {
       setToast(true);
       setTimeout(() => {
         router.push("/");
+        setToast(false);
       }, 2000);
     }
   };
