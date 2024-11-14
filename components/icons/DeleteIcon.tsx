@@ -5,8 +5,8 @@ export default function DeleteIcon() {
       fill="none"
       viewBox="0 0 24 24"
       strokeWidth={1.5}
-      stroke="currentColor"
-      className="size-8"
+      stroke="#F5F5F5"
+      className="size-7"
     >
       <path
         strokeLinecap="round"

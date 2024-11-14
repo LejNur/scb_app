@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 interface ToastProps {
   message: string;
@@ -11,13 +11,14 @@ function Toast({ message, onClose, className }: ToastProps) {
     <div className=" flex justify-self-end mr-8 animate-fade-left animate-once animate-ease-linear">
       <div
         id="toast"
-        className={`flex items-top w-full max-w-xs p-4 mb-4 ${className} rounded-lg shadow  `}
+        className={`flex items-top w-full max-w-xs p-4 mb-4 ${className} rounded-sm shadow  `}
         role="alert"
       >
         <div className="ms-3 text-md font-medium">{message}</div>
+
         <button
           type="button"
-          className={`ms-auto -mx-1.5 -my-1.5 rounded-lg inline-flex items-center justify-center h-8 w-8 ${className}`}
+          className={`ms-auto -mx-1.5 -my-1.5 bg-transparent inline-flex items-center justify-center h-8 w-8 ${className}`}
           onClick={onClose}
         >
           <span className="sr-only">Close</span>

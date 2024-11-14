@@ -46,7 +46,8 @@ export default function ContactsList({ contacts }: ContactsListProps) {
   const filteredContacts = contactList.filter(
     (contact) =>
       contact.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      contact.email.toLowerCase().includes(searchQuery.toLowerCase())
+      contact.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      contact.lastName.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const handleSort = (field: "firstName" | "lastName" | "email") => {

@@ -7,7 +7,7 @@ export default function PhoneIcon() {
       fill="none"
       viewBox="0 0 24 24"
       strokeWidth={1.5}
-      stroke="currentColor"
+      stroke="#F5F5F5"
       className="size-6"
     >
       <path

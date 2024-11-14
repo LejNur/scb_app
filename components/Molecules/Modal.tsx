@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 interface ModalProps {
   message: string;
@@ -15,7 +15,7 @@ function Modal({ message, className, onConfirm, onCancel }: ModalProps) {
         <div className="flex justify-center gap-4 mt-4">
           <button
             onClick={onConfirm}
-            className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 focus:outline-none"
+            className="bg-dangerRed text-white px-4 py-2 rounded hover:bg-red-700 focus:outline-none"
           >
             Confirm
           </button>

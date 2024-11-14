@@ -13,7 +13,8 @@ export default {
         chartreuse: "#E0FC58",
         chartreuseDarker: "#C3D94C",
         successGreen: "#28A745",
-        errorRed: "#DC3545",
+        dangerRed: "#DC3545",
+        dangerRedDark: "#A12735",
         softWhite: "#F5F5F5",
       },
       fontFamily: {

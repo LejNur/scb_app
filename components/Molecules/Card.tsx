@@ -35,14 +35,14 @@ export default function Card({
   };
 
   return (
-    <div className="w-full max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-5 flex-nowrap">
+    <div className="w-full max-w-md mx-auto bg-smokyBlack shadow-lg shadow-neutral-900 text-softWhite   overflow-hidden md:max-w-2xl m-5 flex-nowrap ">
       <div className="p-8">
         <div className="flex justify-between align-baseline tracking-wide">
           <div>
-            <p className="block mt-1 text-lg leading-tight font-medium text-black">
+            <p className="block mt-1 text-2xl font-Lato tracking-widest font-thin">
               {contact.firstName} {contact.lastName}
             </p>
-            <p className="block mt-1 text-sm leading-loose font-medium text-gray-500">
+            <p className="block mt-1 text-sm font-Lato tracking-wider font-think opacity-60">
               {contact.email}
             </p>
           </div>
@@ -54,11 +54,15 @@ export default function Card({
               label={
                 contact.favorite ? (
                   <HeartIcon
-                    fill="#8B0000"
-                    // className="w-10 animate-ping animate-once animate-ease-linear animate-normal"
+                    fill="#DC3545"
+                    className="w-8 active:animate-ping animate-once animate-duration-[2000ms]"
                   />
                 ) : (
-                  <HeartIcon fill="none" stroke="#8B0000" />
+                  <HeartIcon
+                    fill="none"
+                    stroke="#DC3545"
+                    className="w-8 active:animate-ping animate-once animate-duration-[2000ms]"
+                  />
                 )
               }
             />
@@ -67,24 +71,28 @@ export default function Card({
           </div>
         </div>
 
-        {isOpen && (
-          <div className="flex justify-between align-baseline mt-8 mx-1 ">
-            <div className="flex justify-normal align-middle gap-3 mt-2">
-              <PhoneIcon />
-              <p className=" text-gray-500">{contact.phone}</p>
-            </div>
-
-            <div className="flex align-baseline gap-8">
-              <Link href={`/edit/${contact.id}`}>
-                <EditIcon />
-              </Link>
-              <Button
-                label={<DeleteIcon />}
-                onClick={() => setModalVisible(true)}
-              />
-            </div>
+        <div
+          className={`flex justify-between items-baseline mt-2 mx-1 transition-all duration-500 ease-in-out ${
+            isOpen
+              ? "max-h-screen opacity-100"
+              : "max-h-0 opacity-0 overflow-hidden"
+          }`}
+        >
+          <div className="flex justify-normal align-middle gap-3 mt-6">
+            <PhoneIcon />
+            <p className="opacity-80">{contact.phone}</p>
           </div>
-        )}
+
+          <div className="flex items-center gap-8">
+            <Link href={`/edit/${contact.id}`}>
+              <EditIcon />
+            </Link>
+            <Button
+              label={<DeleteIcon />}
+              onClick={() => setModalVisible(true)}
+            />
+          </div>
+        </div>
       </div>
       {modalVisible && (
         <Modal

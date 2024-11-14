@@ -95,8 +95,8 @@ export default function Form({ formData: initialData }: Props) {
       {errors && (
         <Toast
           message={errors}
-          className=" text-red-500 bg-red-300 rounded-lg dark:bg-red-800
-          dark:text-red-200"
+          className=" text-dangerRed bg-dangerRedDark bg-opacity-70"
+          onClose={() => setToastVisible(false)}
         />
       )}
       <form onSubmit={handleSubmit} className="max-w-md mx-auto px-4">
@@ -104,7 +104,7 @@ export default function Form({ formData: initialData }: Props) {
           <input
             type="text"
             name="firstName"
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            className="block py-2.5 px-0 w-full text-sm text-softWhite bg-transparent border-0 border-b-2  appearance-none dark:text-softWhite focus:outline-none focus:ring-0 focus:border-chartreuse peer"
             placeholder=""
             required
             value={formData.firstName}
@@ -112,7 +112,7 @@ export default function Form({ formData: initialData }: Props) {
           />
           <label
             htmlFor="firstName"
-            className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            className="peer-focus:font-medium absolute text-sm text-softWhite duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-chartreuseDarker  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 text-opacity-60"
           >
             First Name
           </label>
@@ -121,7 +121,7 @@ export default function Form({ formData: initialData }: Props) {
           <input
             type="text"
             name="lastName"
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            className="block py-2.5 px-0 w-full text-sm text-softWhite bg-transparent border-0 border-b-2  appearance-none dark:text-softWhite focus:outline-none focus:ring-0 focus:border-chartreuse peer"
             placeholder=" "
             required
             value={formData.lastName}
@@ -129,7 +129,7 @@ export default function Form({ formData: initialData }: Props) {
           />
           <label
             htmlFor="lastName"
-            className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            className="peer-focus:font-medium absolute text-sm text-softWhite duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-chartreuseDarker  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 text-opacity-60"
           >
             Last Name
           </label>
@@ -139,7 +139,7 @@ export default function Form({ formData: initialData }: Props) {
             <input
               type="text"
               name="email"
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              className="block py-2.5 px-0 w-full text-sm text-softWhite bg-transparent border-0 border-b-2  appearance-none dark:text-softWhite focus:outline-none focus:ring-0 focus:border-chartreuse peer"
               placeholder=" "
               required
               value={formData.email}
@@ -147,7 +147,7 @@ export default function Form({ formData: initialData }: Props) {
             />
             <label
               htmlFor="email"
-              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              className="peer-focus:font-medium absolute text-sm text-softWhite duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-chartreuseDarker  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 text-opacity-60"
             >
               Email
             </label>
@@ -157,7 +157,7 @@ export default function Form({ formData: initialData }: Props) {
               type="text"
               name="phone"
               pattern="\d{2,3}-\d+"
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              className="block py-2.5 px-0 w-full text-sm text-softWhite bg-transparent border-0 border-b-2  appearance-none dark:text-softWhite focus:outline-none focus:ring-0 focus:border-chartreuse peer"
               placeholder=" "
               required
               value={formData.phone}
@@ -165,7 +165,7 @@ export default function Form({ formData: initialData }: Props) {
             />
             <label
               htmlFor="phone"
-              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              className="peer-focus:font-medium absolute text-sm text-softWhite duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-chartreuseDarker  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 text-opacity-60"
             >
               Phone number (123-456789)
             </label>
@@ -182,7 +182,7 @@ export default function Form({ formData: initialData }: Props) {
               name="favorite"
               checked={formData.favorite}
               onChange={handleChange}
-              className="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-slate-800 checked:border-slate-800"
+              className="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-softWhite checked:bg-chartreuse checked:border-chartreuseDarker"
               id="check-2"
             />
             <span className="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -190,9 +190,9 @@ export default function Form({ formData: initialData }: Props) {
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-3.5 w-3.5"
                 viewBox="0 0 20 20"
-                fill="currentColor"
-                stroke="currentColor"
-                strokeWidth="1"
+                fill="smokyBlack"
+                stroke="smokyBlack"
+                strokeWidth="2"
               >
                 <path
                   fillRule="evenodd"
@@ -203,7 +203,7 @@ export default function Form({ formData: initialData }: Props) {
             </span>
           </label>
           <label
-            className="cursor-pointer ml-2 text-slate-600 text-sm"
+            className="cursor-pointer ml-2 text-softWhite text-opacity-60 text-sm"
             htmlFor="check-2"
           >
             Add to favorites
@@ -213,7 +213,7 @@ export default function Form({ formData: initialData }: Props) {
         <Button
           label="Submit"
           type="submit"
-          className="block my-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="block my-4 text-smokyBlack bg-chartreuse hover:bg-chartreuseDarker focus:ring-4 focus:outline-none focus:ring-chartreuse font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center  "
         ></Button>
       </form>
     </>
