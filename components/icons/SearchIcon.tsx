@@ -5,7 +5,7 @@ export default function SearchIcon() {
       fill="none"
       viewBox="0 0 24 24"
       strokeWidth={1.5}
-      stroke="currentColor"
+      stroke="chartreuse"
       className="size-6 absolute left-3 top-1/2 transform -translate-y-1/2"
     >
       <path

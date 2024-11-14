@@ -9,14 +9,14 @@ interface InputProps {
 }
 export default function Input({ type = "text", value, onChange }: InputProps) {
   return (
-    <div className="relative flex-1">
+    <div className="relative flex-1 bg-smokyBlack">
       <SearchIcon />
       <input
         type={type}
         value={value}
         onChange={onChange}
         placeholder="Search"
-        className="pl-10 py-2 border w-full  focus:outline-none"
+        className="pl-10 py-2 border border-chartreuse w-full focus:outline-none bg-smokyBlack text-slate-100"
       />
     </div>
   );
