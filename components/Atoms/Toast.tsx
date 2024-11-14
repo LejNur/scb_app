@@ -8,7 +8,7 @@ interface ToastProps {
 
 function Toast({ message, onClose, className }: ToastProps) {
   return (
-    <div className=" flex justify-self-end mr-8 animate-fade-left animate-once animate-ease-linear">
+    <div className="flex justify-self-end mr-4 animate-fade-left animate-once animate-ease-linear">
       <div
         id="toast"
         className={`flex items-top w-full max-w-xs p-4 mb-4 ${className} rounded-sm shadow  `}

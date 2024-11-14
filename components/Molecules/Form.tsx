@@ -88,8 +88,7 @@ export default function Form({ formData: initialData }: Props) {
       {toastVisible && (
         <Toast
           message={message}
-          className=" text-green-500 bg-green-100 rounded-lg dark:bg-green-800
-          dark:text-green-200"
+          className=" text-forestGreen bg-successGreen"
         />
       )}
       {errors && (
@@ -101,7 +100,7 @@ export default function Form({ formData: initialData }: Props) {
           }}
         />
       )}
-      <form onSubmit={handleSubmit} className="max-w-md mx-auto px-4">
+      <form onSubmit={handleSubmit} className="max-w-md mx-auto px-4 mt-10">
         <div className="relative z-0 w-full mb-5 group">
           <input
             type="text"

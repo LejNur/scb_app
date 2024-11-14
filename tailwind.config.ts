@@ -10,12 +10,14 @@ export default {
     extend: {
       colors: {
         smokyBlack: "#100C0B",
-        chartreuse: "#E0FC58",
+        chartreuse: "#E4FF59",
         chartreuseDarker: "#C3D94C",
-        successGreen: "#28A745",
-        dangerRed: "#DC3545",
-        dangerRedDark: "#A12735",
+        successGreen: "#70CD70",
+        forestGreen: "#2E8B57",
+        dangerRed: "#EB6860",
+        dangerRedDark: "#DC3545",
         softWhite: "#F5F5F5",
+        softSage: "#CBD2B9",
       },
       fontFamily: {
         Lato: ["Lato", "sans-serif"],
