@@ -8,8 +8,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "Access-Control-Allow-Origin",
-            value:
-              "https://scb-app.vercel.app , https://scb-auy99wjtu-lejlas-projects-c2da05e4.vercel.app",
+            value: "https://scb-app.vercel.app",
           },
           {
             key: "Access-Control-Allow-Methods",
