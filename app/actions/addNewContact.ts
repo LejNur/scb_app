@@ -7,11 +7,14 @@ interface NewContact {
 
 export const addNewContact = async (form: NewContact) => {
   try {
-    const res = await fetch("http://localhost:3000/api/contacts", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_API_URL}/api/contacts`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      }
+    );
 
     if (!res.ok) {
       const errorData = await res.json();
