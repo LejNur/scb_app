@@ -8,6 +8,5 @@ export async function getContact(id: string) {
     return res.json();
   } catch (error) {
     if (error instanceof Error) throw new Error(error.message);
-    return [];
   }
 }

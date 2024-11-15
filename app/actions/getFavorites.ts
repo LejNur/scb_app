@@ -9,6 +9,5 @@ export async function getFavorites() {
     return res.json();
   } catch (error) {
     if (error instanceof Error) throw new Error(error.message);
-    return [];
   }
 }
