@@ -1,8 +1,6 @@
 export async function getFavorites() {
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_API_URL}/api/favorites`
-    );
+    const res = await fetch(`/api/favorites`);
 
     if (!res.ok) {
       const errorData = await res.json();

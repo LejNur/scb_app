@@ -2,14 +2,11 @@ import { FormData } from "@/components/Molecules/Form";
 
 export const updateContact = async (id: string, form: FormData) => {
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_API_URL}/api/contact/${id}`,
-      {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      }
-    );
+    const res = await fetch(`/api/contact/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
 
     if (!res.ok) {
       const errorData = await res.json();
